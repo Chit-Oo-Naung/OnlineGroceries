@@ -63,7 +63,7 @@ struct DeliveryAddressView: View {
                                 .padding(.bottom, 8)
                                 
                                 Button {
-                                    
+                                    addressVM.serviceCallRemove(cObj: aObj)
                                 } label: {
                                     Image("close")
                                         .resizable()
@@ -108,8 +108,8 @@ struct DeliveryAddressView: View {
                     
                     Spacer()
                     
-                    Button {
-                        mode.wrappedValue.dismiss()
+                    NavigationLink() {
+                        AddDeliveryAddressView()
                     } label: {
                         Image("add_temp")
                             .resizable()
@@ -117,6 +117,9 @@ struct DeliveryAddressView: View {
                             .frame(width: 20, height: 20)
                     }
                     .foregroundColor(.primaryText)
+                    .padding(.bottom, 8)
+                    
+                    
                 }
                 .padding(.top, .topInsets)
                 .padding(.horizontal, 20)

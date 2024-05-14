@@ -57,10 +57,12 @@ struct AccountView: View {
                             }
                             .foregroundColor(.primaryText)
 
-                            
-                            
-                            AccountRow(title: "Payment Methods", icon: "paymenth_methods")
-                            
+                            NavigationLink {
+                                PaymentMethodsView()
+                            } label: {
+                                AccountRow(title: "Payment Methods", icon: "paymenth_methods")
+                            }
+                            .foregroundColor(.primaryText)
                             
                             NavigationLink {
                                 PromoCodeView()
