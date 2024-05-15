@@ -17,16 +17,16 @@ struct AddPaymentMethodView: View {
             ScrollView {
                 VStack(spacing: 15) {
                     
-                    LineTextField(title: "Name", placeholder: "Enter your name", txt: $payVM.txtName)
+                    LineTextField(title: "Name", placeholder: "Enter name", txt: $payVM.txtName)
                     
-                    LineTextField(title: "Card No.", placeholder: "Enter your card number", txt: $payVM.txtCardNumber, keyboardtype: .numberPad)
+                    LineTextField(title: "Card Number", placeholder: "Enter card number", txt: $payVM.txtCardNumber, keyboardtype: .numberPad)
                     
                     HStack {
-                        LineTextField(title: "MM", placeholder: "Enter your month", txt: $payVM.txtCardMonth, keyboardtype: .numberPad)
-                        LineTextField(title: "YYYY", placeholder: "Enter your year", txt: $payVM.txtCardYear, keyboardtype: .numberPad)
+                        LineTextField(title: "MM", placeholder: "Enter month", txt: $payVM.txtCardMonth, keyboardtype: .numberPad)
+                        LineTextField(title: "YYYY", placeholder: "Enter year", txt: $payVM.txtCardYear, keyboardtype: .numberPad)
                     }
                     
-                    RoundButton(title: "Add Address") {
+                    RoundButton(title: "Add Payment Method") {
                         
                         payVM.serviceCallAdd {
                             self.mode.wrappedValue.dismiss()
