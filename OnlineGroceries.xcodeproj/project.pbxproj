@@ -71,6 +71,7 @@
 		59DEC3BA2BEB60EC00BE81F7 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DEC3B92BEB60EC00BE81F7 /* CartViewModel.swift */; };
 		59DEC3BC2BEB635B00BE81F7 /* CartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DEC3BB2BEB635B00BE81F7 /* CartItemModel.swift */; };
 		59DEC3BF2BEB8FDF00BE81F7 /* MyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DEC3BE2BEB8FDF00BE81F7 /* MyCartView.swift */; };
+		59E381C92BF5152E0060F5BF /* CheckOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E381C82BF5152E0060F5BF /* CheckOutView.swift */; };
 		59E773E82BEF43CF009379C3 /* AddDeliveryAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E773E72BEF43CF009379C3 /* AddDeliveryAddressView.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +159,7 @@
 		59DEC3B92BEB60EC00BE81F7 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		59DEC3BB2BEB635B00BE81F7 /* CartItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemModel.swift; sourceTree = "<group>"; };
 		59DEC3BE2BEB8FDF00BE81F7 /* MyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartView.swift; sourceTree = "<group>"; };
+		59E381C82BF5152E0060F5BF /* CheckOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutView.swift; sourceTree = "<group>"; };
 		59E773E72BEF43CF009379C3 /* AddDeliveryAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeliveryAddressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -401,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				59DEC3BE2BEB8FDF00BE81F7 /* MyCartView.swift */,
+				59E381C82BF5152E0060F5BF /* CheckOutView.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				590D13582B709B0B006183D4 /* UserModel.swift in Sources */,
 				59B85EE32B760EB00090921B /* ExploreItemViewModel.swift in Sources */,
 				593120722BF35285007C35B5 /* PaymentModel.swift in Sources */,
+				59E381C92BF5152E0060F5BF /* CheckOutView.swift in Sources */,
 				593120702BF3522A007C35B5 /* PaymentViewModel.swift in Sources */,
 				594E452E2B70CB400044732C /* TabButton.swift in Sources */,
 				5992D9A32B6B4A31008767D9 /* SignUpView.swift in Sources */,
