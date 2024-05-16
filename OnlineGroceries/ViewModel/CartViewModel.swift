@@ -17,6 +17,13 @@ class CartViewModel: ObservableObject {
     @Published var listArr: [CartItemModel] = []
     @Published var total: String = "0.0"
     
+    @Published var showChackout: Bool = false
+    @Published var deliveryType: Int = 1
+    @Published var paymentType: Int = 1
+    @Published var deliverObj: AddressModel?
+    @Published var paymentObj: PaymentModel?
+    @Published var promoObj: PromoCodeModel?
+    
     init() {
         serviceCallList()
     }

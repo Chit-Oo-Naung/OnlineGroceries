@@ -48,7 +48,7 @@ struct MyCartView: View {
                 Spacer()
                 if(cartVM.listArr.count > 0){
                     Button {
-                        
+                        cartVM.showChackout = true
                     } label: {
                         ZStack {
                             Text("Check Out")
@@ -79,13 +79,33 @@ struct MyCartView: View {
                 }
                 
             }
+            
+            if(cartVM.showChackout) {
+                Color.black
+                    .opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation {
+                            cartVM.showChackout = true
+                        }
+                    }
+                
+                CheckOutView(isShow: $cartVM.showChackout)
+                    .transition(.opacity.combined(with: .move(edge: .bottom)))
+            }
+            
         }
         .onAppear {
             cartVM.serviceCallList()
         }
+//        .sheet(isPresented: $cartVM.showChackout, content: {
+//            CheckOutView()
+//                .presentationDetents([.height(.screenWidth * 1.3), .medium])
+//        })
         .alert(isPresented: $cartVM.showError, content: {
             Alert(title: Text(Globs.AppName), message: Text(cartVM.errorMessage), dismissButton: .default(Text("OK")))
         })
+        .animation(.easeInOut, value: cartVM.showChackout)
         .ignoresSafeArea()
     }
 }
