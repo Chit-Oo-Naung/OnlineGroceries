@@ -186,7 +186,7 @@ struct CheckOutView: View {
                         
                         Spacer()
                         
-                        Text("$ 4.99")
+                        Text("$\(cartVM.total)")
                             .font(.customfont(.semibold, fontSize: 16))
                             .foregroundColor(.secondaryText)
                     }
@@ -198,7 +198,7 @@ struct CheckOutView: View {
                         
                         Spacer()
                         
-                        Text("+ $ 2.99")
+                        Text("+ $\(cartVM.deliverPriceAmount)")
                             .font(.customfont(.semibold, fontSize: 16))
                             .foregroundColor(.secondaryText)
                     }
@@ -210,7 +210,7 @@ struct CheckOutView: View {
                         
                         Spacer()
                         
-                        Text("- $ 0.00")
+                        Text("- $\(cartVM.discountAmount)")
                             .font(.customfont(.semibold, fontSize: 16))
                             .foregroundColor(.red)
                     }
@@ -227,7 +227,7 @@ struct CheckOutView: View {
                     
                     Spacer()
                     
-                    Text("$ 6.99")
+                    Text("$\(cartVM.userPayAmount)")
                         .font(.customfont(.semibold, fontSize: 18))
                         .foregroundColor(.primaryText)
                         .frame(height: 46)
@@ -268,9 +268,9 @@ struct CheckOutView: View {
                 .padding(.vertical, .screenWidth * 0.03)
                 
                 RoundButton(title: "Place Order") {
-                    
+                    cartVM.serviceCallOrderPlace()
                 }
-                .padding(.bottom, .bottomInsets + 15)
+                .padding(.bottom, .bottomInsets + 65)
                 
             }
             .padding(.horizontal, 20)

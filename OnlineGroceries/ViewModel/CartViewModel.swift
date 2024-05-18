@@ -29,6 +29,10 @@ class CartViewModel: ObservableObject {
     @Published var paymentObj: PaymentModel?
     @Published var promoObj: PromoCodeModel?
     
+    @Published var deliverPriceAmount: String = ""
+    @Published var discountAmount: String = ""
+    @Published var userPayAmount: String = ""
+    
     init() {
         serviceCallList()
     }
@@ -36,17 +40,26 @@ class CartViewModel: ObservableObject {
     //MARK: ServiceCall
     
     func serviceCallList() {
-        ServiceCall.post(parameter: [:], path: Globs.SV_CART_LIST, isToken: true) { responseObj in
+        ServiceCall.post(parameter: ["promo_code_id":promoObj?.id ?? "", "delivery_type": deliveryType], path: Globs.SV_CART_LIST, isToken: true) { responseObj in
             if let response = responseObj as? NSDictionary {
                 
                 if response.value(forKey: KKey.status) as? String ?? "" ==  "1" {
                     
                     self.total = response.value(forKey: "total") as? String ?? "0.0"
+                    self.discountAmount = response.value(forKey: "discount_amount") as? String ?? "0.0"
+                    self.deliverPriceAmount = response.value(forKey: "deliver_price_amount") as? String ?? "0.0"
+                    self.userPayAmount = response.value(forKey: "user_pay_price") as? String ?? "0.0"
+                    
                     self.listArr = (response.value(forKey: KKey.payload) as? NSArray ?? []).map({ obj in
                         return CartItemModel(dict: obj as? NSDictionary ?? [:])
                     })
                     
                 } else {
+                    self.total = response.value(forKey: "total") as? String ?? "0.0"
+                    self.discountAmount = response.value(forKey: "discount_amount") as? String ?? "0.0"
+                    self.deliverPriceAmount = response.value(forKey: "deliver_price_amount") as? String ?? "0.0"
+                    self.userPayAmount = response.value(forKey: "user_pay_price") as? String ?? "0.0"
+                    
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
                     self.showError = true
                 }
@@ -82,6 +95,49 @@ class CartViewModel: ObservableObject {
                 
                 if response.value(forKey: KKey.status) as? String ?? "" ==  "1" {
                     
+                    self.serviceCallList()
+                    
+                } else {
+                    self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
+                    self.showError = true
+                }
+            }
+        } failure: { error in
+            self.errorMessage = error?.localizedDescription ?? "Fail"
+            self.showError = true
+        }
+    }
+    
+    func serviceCallOrderPlace() {
+        
+        if(deliveryType == 1 && deliverObj == nil) {
+            self.errorMessage = "Please select delivery address"
+            self.showError = true
+            return
+        }
+        
+        if(paymentType == 2 && deliverObj == nil) {
+            self.errorMessage = "Please select payment method"
+            self.showError = true
+            return
+        }
+        
+        ServiceCall.post(parameter: ["address_id": deliveryType == 2 ? "" : "\(deliverObj?.id ?? 0)",
+                                     "deliver_type": deliveryType,
+                                     "payment_type": paymentType,
+                                     "pay_id": paymentType == 1 ? "" : "\(paymentObj?.id ?? 0)",
+                                     "promo_code_id": promoObj?.id ?? ""], path: Globs.SV_ORDER_PLACE, isToken: true) { responseObj in
+            if let response = responseObj as? NSDictionary {
+                
+                if response.value(forKey: KKey.status) as? String ?? "" ==  "1" {
+                    
+                    self.deliverObj = nil
+                    self.paymentObj = nil
+                    self.promoObj = nil
+                    self.showChackout = false
+                    
+                    self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Success"
+                    self.showError = true
                     self.serviceCallList()
                     
                 } else {

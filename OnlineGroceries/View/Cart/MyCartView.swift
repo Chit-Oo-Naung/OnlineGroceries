@@ -30,7 +30,7 @@ struct MyCartView: View {
                 .padding(.top, .bottomInsets + 46)
                 .padding(.bottom, .bottomInsets + 60)
             }
-            .padding(.top, .topInsets + 60)
+            .padding(.top, .topInsets - 30)
             
             VStack {
                 
