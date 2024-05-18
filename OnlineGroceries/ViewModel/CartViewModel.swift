@@ -18,6 +18,11 @@ class CartViewModel: ObservableObject {
     @Published var total: String = "0.0"
     
     @Published var showChackout: Bool = false
+    
+    @Published var showPickerAddress: Bool = false
+    @Published var showPickerPayment: Bool = false
+    @Published var showPickerPromoCode: Bool = false
+    
     @Published var deliveryType: Int = 1
     @Published var paymentType: Int = 1
     @Published var deliverObj: AddressModel?

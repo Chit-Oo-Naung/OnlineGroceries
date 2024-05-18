@@ -56,25 +56,35 @@ struct CheckOutView: View {
                     Divider()
                     
                     if(cartVM.deliveryType == 1) {
-                        HStack {
-                            Text("Delivery")
-                                .font(.customfont(.semibold, fontSize: 18))
-                                .foregroundColor(.secondaryText)
-                                .frame(height: 46)
-                            
-                            Spacer()
-                            
-                            Text("Delivery")
-                                .font(.customfont(.semibold, fontSize: 18))
-                                .foregroundColor(.primaryText)
-                                .frame(height: 46)
-                            
-                            Image("next")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 20)
-                                .foregroundColor(.primaryText)
+                        
+                        NavigationLink {
+                            DeliveryAddressView(isPicker: true, didSelect: {
+                                aObj in
+                                cartVM.deliverObj = aObj
+                            })
+                        } label: {
+                            HStack {
+                                Text("Delivery")
+                                    .font(.customfont(.semibold, fontSize: 18))
+                                    .foregroundColor(.secondaryText)
+                                    .frame(height: 46)
+                                
+                                Spacer()
+                                
+                                Text(cartVM.deliverObj?.name ?? "Select Method")
+                                    .font(.customfont(.semibold, fontSize: 18))
+                                    .foregroundColor(.primaryText)
+                                    .frame(height: 46)
+                                
+                                Image("next")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.primaryText)
+                            }
                         }
+                        
+                        
                         
                         Divider()
                     }
@@ -99,21 +109,58 @@ struct CheckOutView: View {
                     Divider()
                     
                     if(cartVM.paymentType == 2) {
+                        NavigationLink {
+                            PaymentMethodsView(isPicker: true, didSelect: {
+                                pObj in
+                                cartVM.paymentObj = pObj
+                            })
+                        } label: {
+                            HStack {
+                                Text("Payment")
+                                    .font(.customfont(.semibold, fontSize: 18))
+                                    .foregroundColor(.secondaryText)
+                                    .frame(height: 46)
+                                
+                                Spacer()
+                                
+                                Image("master")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 20)
+                                    .foregroundColor(.primaryText)
+                                
+                                Text(cartVM.paymentObj?.cardNumber ?? "Select")
+                                    .font(.customfont(.semibold, fontSize: 18))
+                                    .foregroundColor(.primaryText)
+                                    .frame(height: 46)
+                                
+                                Image("next")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.primaryText)
+                                
+                            }
+                        }
+                        
+                        Divider()
+                    }
+                    
+                    NavigationLink {
+                        PromoCodeView(isPicker: true, didSelect: {
+                            pObj in
+                            cartVM.promoObj = pObj
+                        })
+                    } label: {
                         HStack {
-                            Text("Payment")
+                            Text("Promo Code")
                                 .font(.customfont(.semibold, fontSize: 18))
                                 .foregroundColor(.secondaryText)
                                 .frame(height: 46)
                             
                             Spacer()
                             
-                            Image("master")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 20)
-                                .foregroundColor(.primaryText)
-                            
-                            Text("Select")
+                            Text(cartVM.promoObj?.code ?? "Pick Discount")
                                 .font(.customfont(.semibold, fontSize: 18))
                                 .foregroundColor(.primaryText)
                                 .frame(height: 46)
@@ -125,29 +172,6 @@ struct CheckOutView: View {
                                 .foregroundColor(.primaryText)
                             
                         }
-                        
-                        Divider()
-                    }
-                    
-                    HStack {
-                        Text("Promo Code")
-                            .font(.customfont(.semibold, fontSize: 18))
-                            .foregroundColor(.secondaryText)
-                            .frame(height: 46)
-                        
-                        Spacer()
-                        
-                        Text("Pick Discount")
-                            .font(.customfont(.semibold, fontSize: 18))
-                            .foregroundColor(.primaryText)
-                            .frame(height: 46)
-                        
-                        Image("next")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.primaryText)
-                        
                     }
                     
                     Divider()
@@ -258,5 +282,8 @@ struct CheckOutView: View {
 
 #Preview {
     @State var isShow: Bool = false
-    return CheckOutView(isShow: $isShow)
+    return NavigationView {
+        CheckOutView(isShow: $isShow)
+    }
+    
 }
