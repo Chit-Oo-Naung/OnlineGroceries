@@ -46,7 +46,13 @@ struct AccountView: View {
                     LazyVStack {
                         
                         VStack {
-                            AccountRow(title: "Orders", icon: "a_order")
+                            
+                            NavigationLink {
+                                MyOrdersView()
+                            } label: {
+                                AccountRow(title: "My Orders", icon: "a_order")
+                            }
+                            .foregroundColor(.primaryText)
                             
                             AccountRow(title: "My Details", icon: "a_my_detail")
                             

@@ -6,71 +6,126 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MyOrdersView: View {
-    @Environment(\.presentationMode) var mode : Binding<PresentationMode>
-    @StateObject var addressVM = DeliveryAddressViewModel.shared
-    @State var isEdit: Bool = false
-    @State var editObj: AddressModel?
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @StateObject var myVM = MyOrdersViewModel.shared
     
     var body: some View {
         ZStack {
             
             ScrollView {
-                VStack(spacing: 15) {
-                    HStack {
-                        Button {
-                            addressVM.txtTypeName = "Home"
-                        } label: {
-                            Image(systemName: addressVM.txtTypeName == "Home" ? "record.circle" : "circle")
-                            
-                            Text("Home")
-                                .font(.customfont(.semibold, fontSize: 16))
-                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        }
-                        .foregroundColor(.primaryText)
+                LazyVStack(spacing: 15) {
+                    ForEach(myVM.listArr, id: \.id, content: {
+                        myObj in
                         
-                        Button {
-                            addressVM.txtTypeName = "Office"
-                        } label: {
-                            Image(systemName: addressVM.txtTypeName == "Office" ? "record.circle" : "circle")
+                        VStack {
+                            HStack {
+                                Text("Order No: #")
+                                    .font(.customfont(.bold, fontSize: 16))
+                                    .foregroundColor(.primaryText)
+                                
+                                
+                                Text("\(myObj.id)")
+                                    .font(.customfont(.bold, fontSize: 14))
+                                    .foregroundColor(.primaryText)
+                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                
+                                Text(getOrderStatus(mObj: myObj))
+                                    .font(.customfont(.bold, fontSize: 12))
+                                    .foregroundColor(getOrderStatusColor(mObj: myObj))
+                                  
+                            }
                             
-                            Text("Office")
-                                .font(.customfont(.semibold, fontSize: 16))
+                            Text(myObj.createdDate.displayDate(format: "yyyy-MM-dd hh:mm a"))
+                                .font(.customfont(.bold, fontSize: 12))
+                                .foregroundColor(.secondaryText)
                                 .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                        }
-                        .foregroundColor(.primaryText)
-                    }
-                    
-                    LineTextField(title: "Name", placeholder: "Enter your name", txt: $addressVM.txtName)
-                    
-                    LineTextField(title: "Mobile", placeholder: "Enter your mobile number", txt: $addressVM.txtMobile, keyboardtype: .numberPad)
-                    
-                    LineTextField(title: "Address Line", placeholder: "Enter your address", txt: $addressVM.txtAddress)
-                    
-                    HStack {
-                        LineTextField(title: "City", placeholder: "Enter your city", txt: $addressVM.txtCity)
-                        LineTextField(title: "State", placeholder: "Enter your state", txt: $addressVM.txtState)
-                    }
-                    
-                    LineTextField(title: "Postal Code", placeholder: "Enter your postal code", txt: $addressVM.txtPostalCode)
-                    
-                    RoundButton(title: isEdit ? "Update Address" : "Add Address") {
-                        if(isEdit) {
-                            addressVM.serviceCallUpdateAddress(aObj: editObj)  {
-                                self.mode.wrappedValue.dismiss()
+                            
+                            
+                            HStack {
+                                
+                                if let imgageUrl = myObj.images.first {
+                                    WebImage(url: URL(string: imgageUrl))
+                                        .resizable()
+                                        .indicator(.activity) // Activity Indicator
+                                        .transition(.fade(duration: 0.5))
+                                        .scaledToFit()
+                                        .frame(width: 60, height: 60)
+
+                                }
+                                
+                                VStack {
+                                    HStack {
+                                        Text("Items:")
+                                            .font(.customfont(.bold, fontSize: 16))
+                                            .foregroundColor(.primaryText)
+                                        
+                                        
+                                        Text(myObj.names ?? "")
+                                            .font(.customfont(.semibold, fontSize: 14))
+                                            .foregroundColor(.secondaryText)
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        
+                                    }
+                                    
+                                    HStack {
+                                        Text("Delivery Type:")
+                                            .font(.customfont(.bold, fontSize: 16))
+                                            .foregroundColor(.primaryText)
+                                        
+                                        
+                                        Text(self.getDeliveryType(mObj: myObj))
+                                            .font(.customfont(.semibold, fontSize: 14))
+                                            .foregroundColor(.secondaryText)
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        
+                                    }
+                                    
+                                    HStack {
+                                        Text("Payment Type:")
+                                            .font(.customfont(.bold, fontSize: 16))
+                                            .foregroundColor(.primaryText)
+                                        
+                                        
+                                        Text(self.getPaymentType(mObj: myObj))
+                                            .font(.customfont(.semibold, fontSize: 14))
+                                            .foregroundColor(.secondaryText)
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        
+                                    }
+                                    
+                                    HStack {
+                                        Text("Payment Status:")
+                                            .font(.customfont(.bold, fontSize: 16))
+                                            .foregroundColor(.primaryText)
+                                        
+                                        
+                                        Text(self.getPaymentStatus(mObj: myObj))
+                                            .font(.customfont(.semibold, fontSize: 14))
+                                            .foregroundColor(getPaymentStatusColor(mObj: myObj))
+                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        
+                                    }
+                                }
+                                
                             }
-                        } else{
-                            addressVM.serviceCallAddAddress() {
-                                self.mode.wrappedValue.dismiss()
-                            }
+                            
                         }
-                    }
-                    
+                        .padding(15)
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .shadow(color: Color.black.opacity(0.15), radius: 2)
+                        
+                        
+                    })
                 }
                 .padding(20)
                 .padding(.top, .topInsets + 46)
+                .padding(.bottom, .bottomInsets + 60)
             }
+            
             
             VStack {
                 
@@ -88,12 +143,11 @@ struct MyOrdersView: View {
                     
                     Spacer()
                     
-                    Text(isEdit ? "Edit Delivery Address" : "Add Delivery Address")
+                    Text("My Orders")
                         .font(.customfont(.bold, fontSize: 20))
                         .frame(height: 46)
                     
                     Spacer()
-                    
                     
                 }
                 .padding(.top, .topInsets)
@@ -104,22 +158,111 @@ struct MyOrdersView: View {
                 Spacer()
                 
             }
+            
+            
         }
-        .onAppear() {
-            if(isEdit) {
-                if let aObj = editObj {
-                    addressVM.setData(aObj: aObj)
-                }
-            }
-        }
-        .alert(isPresented: $addressVM.showError) {
-            Alert(title: Text(Globs.AppName), message: Text(addressVM.errorMessage), dismissButton: .default(Text("Ok")))
+        .onAppear {
+            
         }
         .navigationTitle("")
-        .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
         .ignoresSafeArea()
     }
+    
+    func getOrderStatus(mObj: MyOrderModel) -> String {
+        switch mObj.orderStatus {
+        case 1:
+            return "Placed";
+        case 2:
+            return "Accepted";
+        case 3:
+            return "Delivered";
+        case 4:
+            return "Cancel";
+        case 5:
+            return "Declined";
+        default:
+            return "";
+        }
+    }
+    
+    func getDeliveryType(mObj: MyOrderModel) -> String {
+        switch mObj.deliverType {
+        case 1:
+            return "Delivery";
+        case 2:
+            return "Collection";
+        default:
+            return "";
+        }
+    }
+    
+    func getPaymentType(mObj: MyOrderModel) -> String {
+        switch mObj.paymentType {
+        case 1:
+            return "Cash On Delivery";
+        case 2:
+            return "Online Card Payment";
+        default:
+            return "";
+        }
+    }
+    
+    func getPaymentStatus(mObj: MyOrderModel) -> String {
+        switch mObj.paymentStatus {
+        case 1:
+            return "Processing";
+        case 2:
+            return "Success";
+        case 3:
+            return "Fail";
+        case 4:
+            return "Refunded";
+        default:
+            return "";
+        }
+    }
+    
+    func getPaymentStatusColor(mObj: MyOrderModel) -> Color {
+        
+        if(mObj.paymentType == 1) {
+            return Color.orange;
+        }
+        
+        switch mObj.paymentStatus {
+        case 1:
+            return Color.blue;
+        case 2:
+            return Color.green;
+        case 3:
+            return Color.red;
+        case 4:
+            return Color.green;
+        default:
+            return Color.white;
+        }
+    }
+
+    func getOrderStatusColor(mObj: MyOrderModel) -> Color {
+        
+        switch mObj.orderStatus {
+        case 1:
+            return Color.blue;
+        case 2:
+            return Color.green;
+        case 3:
+            return Color.red;
+        case 4:
+            return Color.green;
+        case 5:
+            return Color.white;
+        default:
+            return Color.primaryApp;
+        }
+    }
+
+    
 }
 
 #Preview {
