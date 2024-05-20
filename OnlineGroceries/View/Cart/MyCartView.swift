@@ -98,6 +98,9 @@ struct MyCartView: View {
         .onAppear {
             cartVM.serviceCallList()
         }
+        .background( NavigationLink(destination: OrderAcceptView(), isActive: $cartVM.showOrderAccept, label: {
+            EmptyView()
+        }))
 //        .sheet(isPresented: $cartVM.showChackout, content: {
 //            CheckOutView()
 //                .presentationDetents([.height(.screenWidth * 1.3), .medium])

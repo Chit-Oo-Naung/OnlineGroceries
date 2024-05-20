@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OrderAcceptView: View {
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
     var body: some View {
         ZStack {
             Image("bottom_bg")
@@ -37,17 +39,22 @@ struct OrderAcceptView: View {
                     .padding(.bottom, 12)
                 
                 Spacer()
-                
+                Spacer()
                 
                 RoundButton(title: "Track Order") {
                     
                 }
-                Spacer()
-//                Button {
-//                    
-//                } label: {
-//                    <#code#>
-//                }
+                
+                Button {
+                    
+                } label: {
+                    Text("Back to home")
+                        .font(.customfont(.semibold, fontSize: 18))
+                        .foregroundColor(.secondaryText)
+                        .padding(.vertical, 15)
+                }
+                .padding(.bottom, .bottomInsets + 15)
+                
             }
             .padding(.horizontal, 20)
         }

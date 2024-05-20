@@ -12,6 +12,7 @@ class CartViewModel: ObservableObject {
     static var shared: CartViewModel = CartViewModel()
     
     @Published var showError = false
+    @Published var showOrderAccept = false
     @Published var errorMessage = ""
     
     @Published var listArr: [CartItemModel] = []
@@ -139,6 +140,8 @@ class CartViewModel: ObservableObject {
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Success"
                     self.showError = true
                     self.serviceCallList()
+                    
+                    self.showOrderAccept = true
                     
                 } else {
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
