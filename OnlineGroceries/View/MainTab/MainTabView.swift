@@ -94,5 +94,8 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    NavigationView {
+        MainTabView()
+    }
+    
 }
