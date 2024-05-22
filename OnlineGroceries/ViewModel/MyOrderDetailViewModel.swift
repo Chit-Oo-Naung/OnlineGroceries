@@ -33,7 +33,7 @@ class MyOrderDetailViewModel: ObservableObject {
                         
                         self.pObj = MyOrderModel(dict: payloadObj)
                         
-                        self.listArr = (payloadObj.value(forKey: "images") as? NSArray ?? []).map({ obj in
+                        self.listArr = (payloadObj.value(forKey: "cart_list") as? NSArray ?? []).map({ obj in
                             return ProductModel(dict: obj as? NSDictionary ?? [:])
                         })
                     }
