@@ -76,14 +76,12 @@ struct MyOrderDetailView: View {
                 .padding(.horizontal, 20)
                 .padding(.top, .topInsets + 46)
                 
-                LazyVStack(spacing: 8) {
-                    ForEach(detailVM.listArr, id: \.orderId) { pObj in
-                        
+                LazyVStack {
+                    ForEach(detailVM.listArr, id: \.id) { pObj in
                         OrderItemRow(pObj: pObj)
-                         
                     }
                 }
-                .padding(.vertical, 4)
+                
                 
                 VStack {
                     
@@ -153,6 +151,8 @@ struct MyOrderDetailView: View {
                             .scaledToFit()
                             .frame(width: 25, height: 25)
                     }
+                    
+                    Spacer()
                     
                     Text("My Order Detail")
                         .font(.customfont(.semibold, fontSize: 16))

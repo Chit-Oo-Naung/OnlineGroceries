@@ -13,7 +13,7 @@ class ServiceCall {
     class func post(parameter: NSDictionary, path: String, isToken: Bool = false, withSuccess: @escaping ( (_ responseObj: AnyObject?) -> () ), failure: @escaping ( (_ error: Error?) -> ()) ) {
         DispatchQueue.global(qos: .userInitiated).async {
             
-            var parameterData = NSMutableData()
+            let parameterData = NSMutableData()
             let dictKey = parameter.allKeys as! [String]
             
             var i=0;

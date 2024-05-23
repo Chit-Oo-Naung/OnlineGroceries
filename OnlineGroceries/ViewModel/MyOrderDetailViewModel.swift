@@ -14,7 +14,7 @@ class MyOrderDetailViewModel: ObservableObject {
     @Published var showError = false
     @Published var errorMessage = ""
     
-    @Published var listArr: [ProductModel] = []
+    @Published var listArr: [OrderItemModel] = []
     
     init(prodObj: MyOrderModel) {
         self.pObj = prodObj
@@ -34,7 +34,7 @@ class MyOrderDetailViewModel: ObservableObject {
                         self.pObj = MyOrderModel(dict: payloadObj)
                         
                         self.listArr = (payloadObj.value(forKey: "cart_list") as? NSArray ?? []).map({ obj in
-                            return ProductModel(dict: obj as? NSDictionary ?? [:])
+                            return OrderItemModel (dict: obj as? NSDictionary ?? [:])
                         })
                     }
                    
@@ -48,6 +48,5 @@ class MyOrderDetailViewModel: ObservableObject {
             self.showError = true
         }
     }
-    
     
 }

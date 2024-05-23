@@ -20,103 +20,109 @@ struct MyOrdersView: View {
                     ForEach(myVM.listArr, id: \.id, content: {
                         myObj in
                         
-                        VStack {
-                            HStack {
-                                Text("Order No: #")
-                                    .font(.customfont(.bold, fontSize: 16))
-                                    .foregroundColor(.primaryText)
+                        NavigationLink {
+                            MyOrderDetailView(detailVM: MyOrderDetailViewModel(prodObj: myObj))
+                        } label: {
+                            
+                            VStack {
+                                HStack {
+                                    Text("Order No: #")
+                                        .font(.customfont(.bold, fontSize: 16))
+                                        .foregroundColor(.primaryText)
+                                    
+                                    
+                                    Text("\(myObj.id)")
+                                        .font(.customfont(.bold, fontSize: 14))
+                                        .foregroundColor(.primaryText)
+                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                    
+                                    Text(getOrderStatus(mObj: myObj))
+                                        .font(.customfont(.bold, fontSize: 12))
+                                        .foregroundColor(getOrderStatusColor(mObj: myObj))
+                                    
+                                }
                                 
-                                
-                                Text("\(myObj.id)")
-                                    .font(.customfont(.bold, fontSize: 14))
-                                    .foregroundColor(.primaryText)
+                                Text(myObj.createdDate.displayDate(format: "yyyy-MM-dd hh:mm a"))
+                                    .font(.customfont(.bold, fontSize: 12))
+                                    .foregroundColor(.secondaryText)
                                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                                 
-                                Text(getOrderStatus(mObj: myObj))
-                                    .font(.customfont(.bold, fontSize: 12))
-                                    .foregroundColor(getOrderStatusColor(mObj: myObj))
-                                  
-                            }
-                            
-                            Text(myObj.createdDate.displayDate(format: "yyyy-MM-dd hh:mm a"))
-                                .font(.customfont(.bold, fontSize: 12))
-                                .foregroundColor(.secondaryText)
-                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                            
-                            
-                            HStack {
                                 
-                                if let imgageUrl = myObj.images.first {
-                                    WebImage(url: URL(string: imgageUrl))
-                                        .resizable()
-                                        .indicator(.activity) // Activity Indicator
-                                        .transition(.fade(duration: 0.5))
-                                        .scaledToFit()
-                                        .frame(width: 60, height: 60)
-
-                                }
-                                
-                                VStack {
-                                    HStack {
-                                        Text("Items:")
-                                            .font(.customfont(.bold, fontSize: 16))
-                                            .foregroundColor(.primaryText)
-                                        
-                                        
-                                        Text(myObj.names ?? "")
-                                            .font(.customfont(.semibold, fontSize: 14))
-                                            .foregroundColor(.secondaryText)
-                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                HStack {
+                                    
+                                    if let imgageUrl = myObj.images.first {
+                                        WebImage(url: URL(string: imgageUrl))
+                                            .resizable()
+                                            .indicator(.activity) // Activity Indicator
+                                            .transition(.fade(duration: 0.5))
+                                            .scaledToFit()
+                                            .frame(width: 60, height: 60)
                                         
                                     }
                                     
-                                    HStack {
-                                        Text("Delivery Type:")
-                                            .font(.customfont(.bold, fontSize: 16))
-                                            .foregroundColor(.primaryText)
+                                    VStack {
+                                        HStack {
+                                            Text("Items:")
+                                                .font(.customfont(.bold, fontSize: 16))
+                                                .foregroundColor(.primaryText)
+                                            
+                                            
+                                            Text(myObj.names)
+                                                .font(.customfont(.semibold, fontSize: 14))
+                                                .foregroundColor(.secondaryText)
+                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                            
+                                        }
                                         
+                                        HStack {
+                                            Text("Delivery Type:")
+                                                .font(.customfont(.bold, fontSize: 16))
+                                                .foregroundColor(.primaryText)
+                                            
+                                            
+                                            Text(self.getDeliveryType(mObj: myObj))
+                                                .font(.customfont(.semibold, fontSize: 14))
+                                                .foregroundColor(.secondaryText)
+                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                            
+                                        }
                                         
-                                        Text(self.getDeliveryType(mObj: myObj))
-                                            .font(.customfont(.semibold, fontSize: 14))
-                                            .foregroundColor(.secondaryText)
-                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        HStack {
+                                            Text("Payment Type:")
+                                                .font(.customfont(.bold, fontSize: 16))
+                                                .foregroundColor(.primaryText)
+                                            
+                                            
+                                            Text(self.getPaymentType(mObj: myObj))
+                                                .font(.customfont(.semibold, fontSize: 14))
+                                                .foregroundColor(.secondaryText)
+                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                            
+                                        }
                                         
+                                        HStack {
+                                            Text("Payment Status:")
+                                                .font(.customfont(.bold, fontSize: 16))
+                                                .foregroundColor(.primaryText)
+                                            
+                                            
+                                            Text(self.getPaymentStatus(mObj: myObj))
+                                                .font(.customfont(.semibold, fontSize: 14))
+                                                .foregroundColor(getPaymentStatusColor(mObj: myObj))
+                                                .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                            
+                                        }
                                     }
                                     
-                                    HStack {
-                                        Text("Payment Type:")
-                                            .font(.customfont(.bold, fontSize: 16))
-                                            .foregroundColor(.primaryText)
-                                        
-                                        
-                                        Text(self.getPaymentType(mObj: myObj))
-                                            .font(.customfont(.semibold, fontSize: 14))
-                                            .foregroundColor(.secondaryText)
-                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
-                                    
-                                    HStack {
-                                        Text("Payment Status:")
-                                            .font(.customfont(.bold, fontSize: 16))
-                                            .foregroundColor(.primaryText)
-                                        
-                                        
-                                        Text(self.getPaymentStatus(mObj: myObj))
-                                            .font(.customfont(.semibold, fontSize: 14))
-                                            .foregroundColor(getPaymentStatusColor(mObj: myObj))
-                                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                        
-                                    }
                                 }
                                 
                             }
+                            .padding(15)
+                            .background(Color.white)
+                            .cornerRadius(5)
+                            .shadow(color: Color.black.opacity(0.15), radius: 2)
                             
                         }
-                        .padding(15)
-                        .background(Color.white)
-                        .cornerRadius(5)
-                        .shadow(color: Color.black.opacity(0.15), radius: 2)
                         
                         
                     })
@@ -243,7 +249,7 @@ struct MyOrdersView: View {
             return Color.white;
         }
     }
-
+    
     func getOrderStatusColor(mObj: MyOrderModel) -> Color {
         
         switch mObj.orderStatus {
@@ -261,10 +267,13 @@ struct MyOrdersView: View {
             return Color.primaryApp;
         }
     }
-
+    
     
 }
 
 #Preview {
-    MyOrdersView()
+    NavigationView {
+        MyOrdersView()
+    }
+    
 }
