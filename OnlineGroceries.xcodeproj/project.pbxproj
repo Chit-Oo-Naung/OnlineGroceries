@@ -57,6 +57,8 @@
 		5992D99E2B6A49F0008767D9 /* Globs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992D99D2B6A49F0008767D9 /* Globs.swift */; };
 		5992D9A12B6A4F65008767D9 /* UIKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992D9A02B6A4F65008767D9 /* UIKitExtension.swift */; };
 		5992D9A32B6B4A31008767D9 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5992D9A22B6B4A31008767D9 /* SignUpView.swift */; };
+		59A43C9D2C0216CF0020D722 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */; };
+		59A43C9F2C0217CA0020D722 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43C9E2C0217CA0020D722 /* NotificationModel.swift */; };
 		59A9C90E2BFE3A930079AF10 /* MyOrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */; };
 		59A9C9102BFE3D8A0079AF10 /* MyOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */; };
 		59A9C9122BFE4E210079AF10 /* OrderItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C9112BFE4E210079AF10 /* OrderItemRow.swift */; };
@@ -153,6 +155,8 @@
 		5992D99D2B6A49F0008767D9 /* Globs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globs.swift; sourceTree = "<group>"; };
 		5992D9A02B6A4F65008767D9 /* UIKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtension.swift; sourceTree = "<group>"; };
 		5992D9A22B6B4A31008767D9 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		59A43C9E2C0217CA0020D722 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailViewModel.swift; sourceTree = "<group>"; };
 		59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailView.swift; sourceTree = "<group>"; };
 		59A9C9112BFE4E210079AF10 /* OrderItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderItemRow.swift; path = ../../../../../Movies/OrderItemRow.swift; sourceTree = "<group>"; };
@@ -342,6 +346,7 @@
 				593120712BF35285007C35B5 /* PaymentModel.swift */,
 				59FF44F22BFB9EFB00C97334 /* MyOrderModel.swift */,
 				59A9C9132BFEED5B0079AF10 /* OrderItemModel.swift */,
+				59A43C9E2C0217CA0020D722 /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				5931206F2BF3522A007C35B5 /* PaymentViewModel.swift */,
 				59FF44F02BFB9E2600C97334 /* MyOrdersViewModel.swift */,
 				59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */,
+				59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -615,12 +621,14 @@
 				5992D9A32B6B4A31008767D9 /* SignUpView.swift in Sources */,
 				59DEC3BA2BEB60EC00BE81F7 /* CartViewModel.swift in Sources */,
 				5991FA782B679D1700BF506E /* UIExtension.swift in Sources */,
+				59A43C9D2C0216CF0020D722 /* NotificationViewModel.swift in Sources */,
 				59100C8F2B722584007E316A /* ImageModel.swift in Sources */,
 				59D193242BECCD010075D9CF /* AccountRow.swift in Sources */,
 				59FF44ED2BFB855100C97334 /* OrderAcceptView.swift in Sources */,
 				594E45322B70D4AF0044732C /* SectionTitleAll.swift in Sources */,
 				59100C8D2B7224FB007E316A /* NutritionModel.swift in Sources */,
 				59541D072B7322A9006D968C /* FavouriteView.swift in Sources */,
+				59A43C9F2C0217CA0020D722 /* NotificationModel.swift in Sources */,
 				594E45302B70CF500044732C /* SearchTextField.swift in Sources */,
 				593035C62B68F51200D93C49 /* ServiceCall.swift in Sources */,
 				59FF44F32BFB9EFB00C97334 /* MyOrderModel.swift in Sources */,

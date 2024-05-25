@@ -47,6 +47,12 @@ struct Globs {
     static let SV_EXPLORE_LIST = BASE_URL + "explore_category_list"
     static let SV_EXPLORE_ITEMS_LIST = BASE_URL + "explore_category_items_list"
     
+    static let SV_NOTIFICATION_LIST = BASE_URL + "notification_list"
+    static let SV_NOTIFICATION_READ_ALL = BASE_URL + "notification_read_all"
+    
+    static let SV_UPDATE_PROFILE = BASE_URL + "udpate_profile"
+    static let SV_CHANGE_PASSWORD = BASE_URL + "change_password"
+    
 }
 
 struct KKey {
