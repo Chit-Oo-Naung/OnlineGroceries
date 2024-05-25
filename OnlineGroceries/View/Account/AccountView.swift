@@ -80,7 +80,13 @@ struct AccountView: View {
                         }
                         
                         VStack {
-                            AccountRow(title: "Notifications", icon: "a_noitification")
+                            NavigationLink {
+                                NotificationView()
+                            } label: {
+                                AccountRow(title: "Notifications", icon: "a_noitification")
+                            }
+                            .foregroundColor(.primaryText)
+                            
                             AccountRow(title: "Help", icon: "a_help")
                             AccountRow(title: "About", icon: "a_about")
                         }

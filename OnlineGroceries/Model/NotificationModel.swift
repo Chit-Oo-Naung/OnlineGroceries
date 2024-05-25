@@ -18,7 +18,7 @@ struct NotificationModel: Identifiable, Equatable {
     var createdDate: Date = Date()
     
     init(dict: NSDictionary) {
-        self.id = dict.value(forKey: "nutrition_id") as? Int ?? 0
+        self.id = dict.value(forKey: "notification_id") as? Int ?? 0
         self.refId = dict.value(forKey: "ref_id") as? Int ?? 0
         self.isRead = dict.value(forKey: "is_read") as? Int ?? 0
         self.notificationType = dict.value(forKey: "notification_type") as? Int ?? 0
