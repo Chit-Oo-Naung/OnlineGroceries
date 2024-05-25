@@ -60,6 +60,8 @@
 		59A43C9D2C0216CF0020D722 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */; };
 		59A43C9F2C0217CA0020D722 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43C9E2C0217CA0020D722 /* NotificationModel.swift */; };
 		59A43CA12C021A910020D722 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA02C021A910020D722 /* NotificationView.swift */; };
+		59A43CA32C0220540020D722 /* MyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA22C0220540020D722 /* MyDetailViewModel.swift */; };
+		59A43CA52C0225530020D722 /* MyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA42C0225530020D722 /* MyDetailsView.swift */; };
 		59A9C90E2BFE3A930079AF10 /* MyOrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */; };
 		59A9C9102BFE3D8A0079AF10 /* MyOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */; };
 		59A9C9122BFE4E210079AF10 /* OrderItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C9112BFE4E210079AF10 /* OrderItemRow.swift */; };
@@ -159,6 +161,8 @@
 		59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		59A43C9E2C0217CA0020D722 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		59A43CA02C021A910020D722 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		59A43CA22C0220540020D722 /* MyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailViewModel.swift; sourceTree = "<group>"; };
+		59A43CA42C0225530020D722 /* MyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsView.swift; sourceTree = "<group>"; };
 		59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailViewModel.swift; sourceTree = "<group>"; };
 		59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailView.swift; sourceTree = "<group>"; };
 		59A9C9112BFE4E210079AF10 /* OrderItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderItemRow.swift; path = ../../../../../Movies/OrderItemRow.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 				59FF44F02BFB9E2600C97334 /* MyOrdersViewModel.swift */,
 				59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */,
 				59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */,
+				59A43CA22C0220540020D722 /* MyDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				59FF44EE2BFB9DD500C97334 /* MyOrdersView.swift */,
 				59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */,
 				59A43CA02C021A910020D722 /* NotificationView.swift */,
+				59A43CA42C0225530020D722 /* MyDetailsView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -616,6 +622,7 @@
 				594E452C2B70C7900044732C /* ExploreView.swift in Sources */,
 				593120742BF3578E007C35B5 /* PaymentMethodsView.swift in Sources */,
 				590D13582B709B0B006183D4 /* UserModel.swift in Sources */,
+				59A43CA52C0225530020D722 /* MyDetailsView.swift in Sources */,
 				59B85EE32B760EB00090921B /* ExploreItemViewModel.swift in Sources */,
 				593120722BF35285007C35B5 /* PaymentModel.swift in Sources */,
 				59E381C92BF5152E0060F5BF /* CheckOutView.swift in Sources */,
@@ -623,6 +630,7 @@
 				594E452E2B70CB400044732C /* TabButton.swift in Sources */,
 				5992D9A32B6B4A31008767D9 /* SignUpView.swift in Sources */,
 				59DEC3BA2BEB60EC00BE81F7 /* CartViewModel.swift in Sources */,
+				59A43CA32C0220540020D722 /* MyDetailViewModel.swift in Sources */,
 				5991FA782B679D1700BF506E /* UIExtension.swift in Sources */,
 				59A43C9D2C0216CF0020D722 /* NotificationViewModel.swift in Sources */,
 				59100C8F2B722584007E316A /* ImageModel.swift in Sources */,

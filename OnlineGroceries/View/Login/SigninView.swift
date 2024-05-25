@@ -38,29 +38,6 @@ struct SigninView: View {
                         .multilineTextAlignment(.leading)
                         .padding(.bottom, 25)
                     
-                    HStack {
-                        Button {
-                            isShowPicker = true
-                        } label: {
-//                            Image("")
-                            
-                            if let countryObj = countryObj {
-                                Text("\(countryObj.isoCode.getFlag())")
-                                    .font(.customfont(.regular, fontSize: 35))
-                                
-                                Text("+\(countryObj.phoneCode)")
-                                    .font(.customfont(.regular, fontSize: 16))
-                                    .foregroundColor(.primaryText)
-                            }
-                            
-                        }
-                        
-                        TextField("Enter Mobile", text: $txtMobile)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                        
-                        
-                        
-                    }
                     
                     NavigationLink {
                         LoginView()
@@ -139,13 +116,7 @@ struct SigninView: View {
                 .padding(.top, .topInsets + .screenWidth * 0.6)
                 
             }
-        }
-        .onAppear {
-            self.countryObj = Country(phoneCode: "95", isoCode: "MM")
-        }
-        .sheet(isPresented: $isShowPicker, content: {
-            CountryPickerUI(country: $countryObj)
-        })
+        }        
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
