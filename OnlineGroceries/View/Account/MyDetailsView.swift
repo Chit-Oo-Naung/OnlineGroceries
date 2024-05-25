@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CountryPicker
 
 struct MyDetailsView: View {
     @Environment(\.presentationMode) var mode : Binding<PresentationMode>
@@ -19,37 +20,50 @@ struct MyDetailsView: View {
                     
                     LineTextField(title: "Name", placeholder: "Enter your name", txt: $myVM.txtName)
                     
-//                    HStack {
-//                        Button {
-//                            isShowPicker = true
-//                        } label: {
-////                            Image("")
-//                            
-//                            if let countryObj = countryObj {
-//                                Text("\(countryObj.isoCode.getFlag())")
-//                                    .font(.customfont(.regular, fontSize: 35))
-//                                
-//                                Text("+\(countryObj.phoneCode)")
-//                                    .font(.customfont(.regular, fontSize: 16))
-//                                    .foregroundColor(.primaryText)
-//                            }
-//                            
-//                        }
-//                        
-//                        TextField("Enter Mobile", text: $txtMobile)
-//                            .frame(minWidth: 0, maxWidth: .infinity)
-//                        
-//                        
-//                        
-//                    }
-                    
-                    
-                    LineTextField(title: "Mobile", placeholder: "Enter your mobile number", txt: $myVM.txtMobile, keyboardtype: .numberPad)
+                    VStack {
+                        Text("Mobile")
+                            .font(.customfont(.semibold, fontSize: 16))
+                            .foregroundColor(.textTitle)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        
+                        HStack {
+                            Button {
+                                myVM.isShowPicker = true
+                            } label: {
+                                if let countryObj = myVM.countryObj {
+                                    Text("\(countryObj.isoCode.getFlag())")
+                                        .font(.customfont(.regular, fontSize: 35))
+                                    
+                                    Text("+\(countryObj.phoneCode)")
+                                        .font(.customfont(.regular, fontSize: 16))
+                                        .foregroundColor(.primaryText)
+                                }
+                                
+                            }
+                            
+                            TextField("Enter your mobile number", text: $myVM.txtMobile)
+                                .keyboardType(.numberPad)
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                            
+                        }
+                        
+                        Divider()
+                        
+                    }
                     
                     LineTextField(title: "Username", placeholder: "Enter your username", txt: $myVM.txtUserName)
                     
                     RoundButton(title: "Update") {
                         myVM.serviceCallUpdate()
+                    }
+                    .padding(.bottom, 45)
+                    
+                    NavigationLink {
+                        ChangePasswordView()
+                    } label: {
+                        Text("Change Password")
+                            .font(.customfont(.bold, fontSize: 16))
+                            .foregroundColor(.primaryApp)
                     }
                     
                 }
@@ -70,7 +84,6 @@ struct MyDetailsView: View {
                             .frame(width: 20, height: 20)
                     }
                     
-                    
                     Spacer()
                     
                     Text("My Details")
@@ -90,6 +103,9 @@ struct MyDetailsView: View {
                 
             }
         }
+        .sheet(isPresented: $myVM.isShowPicker, content: {
+            CountryPickerUI(country: $myVM.countryObj)
+        })
         .alert(isPresented: $myVM.showError) {
             Alert(title: Text(Globs.AppName), message: Text(myVM.errorMessage), dismissButton: .default(Text("Ok")))
         }
@@ -101,5 +117,7 @@ struct MyDetailsView: View {
 }
 
 #Preview {
-    MyDetailsView()
+    NavigationView {
+        MyDetailsView()
+    }
 }

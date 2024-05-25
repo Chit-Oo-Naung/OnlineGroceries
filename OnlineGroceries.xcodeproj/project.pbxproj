@@ -62,6 +62,7 @@
 		59A43CA12C021A910020D722 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA02C021A910020D722 /* NotificationView.swift */; };
 		59A43CA32C0220540020D722 /* MyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA22C0220540020D722 /* MyDetailViewModel.swift */; };
 		59A43CA52C0225530020D722 /* MyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA42C0225530020D722 /* MyDetailsView.swift */; };
+		59A43CA72C0231A50020D722 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A43CA62C0231A50020D722 /* ChangePasswordView.swift */; };
 		59A9C90E2BFE3A930079AF10 /* MyOrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */; };
 		59A9C9102BFE3D8A0079AF10 /* MyOrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */; };
 		59A9C9122BFE4E210079AF10 /* OrderItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59A9C9112BFE4E210079AF10 /* OrderItemRow.swift */; };
@@ -163,6 +164,7 @@
 		59A43CA02C021A910020D722 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		59A43CA22C0220540020D722 /* MyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailViewModel.swift; sourceTree = "<group>"; };
 		59A43CA42C0225530020D722 /* MyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDetailsView.swift; sourceTree = "<group>"; };
+		59A43CA62C0231A50020D722 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailViewModel.swift; sourceTree = "<group>"; };
 		59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailView.swift; sourceTree = "<group>"; };
 		59A9C9112BFE4E210079AF10 /* OrderItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OrderItemRow.swift; path = ../../../../../Movies/OrderItemRow.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				59A9C90F2BFE3D8A0079AF10 /* MyOrderDetailView.swift */,
 				59A43CA02C021A910020D722 /* NotificationView.swift */,
 				59A43CA42C0225530020D722 /* MyDetailsView.swift */,
+				59A43CA62C0231A50020D722 /* ChangePasswordView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				594E45282B70C70D0044732C /* HomeView.swift in Sources */,
 				59541D092B732418006D968C /* FavouriteViewModel.swift in Sources */,
 				5958846C2BEDD9810061DC8D /* DeliveryAddressViewModel.swift in Sources */,
+				59A43CA72C0231A50020D722 /* ChangePasswordView.swift in Sources */,
 				59FF44EF2BFB9DD500C97334 /* MyOrdersView.swift in Sources */,
 				59C87FD42BEBBC5200F43433 /* CartItemRow.swift in Sources */,
 				5991FA7A2B67A32E00BF506E /* RoundButton.swift in Sources */,

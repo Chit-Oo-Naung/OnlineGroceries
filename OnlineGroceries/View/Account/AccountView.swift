@@ -54,7 +54,12 @@ struct AccountView: View {
                             }
                             .foregroundColor(.primaryText)
                             
-                            AccountRow(title: "My Details", icon: "a_my_detail")
+                            NavigationLink {
+                                MyDetailsView()
+                            } label: {
+                                AccountRow(title: "My Details", icon: "a_my_detail")
+                            }
+                            .foregroundColor(.primaryText)
                             
                             NavigationLink {
                                 DeliveryAddressView()

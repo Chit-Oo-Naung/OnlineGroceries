@@ -6,18 +6,32 @@
 //
 
 import SwiftUI
+import CountryPicker
 
 class MyDetailViewModel: ObservableObject {
+    
     static var shared: MyDetailViewModel = MyDetailViewModel()
     
     @Published var txtName: String = ""
     @Published var txtMobile: String = ""
     @Published var txtUserName: String = ""
     @Published var txtMobileCode: String = ""
+    @Published var isShowPicker: Bool = false
+    @Published var countryObj: Country? {
+        didSet {
+            if(countryObj != nil) {
+                txtMobileCode = "+\(countryObj!.phoneCode)"
+            }
+        }
+    }
     
     @Published var txtCurrentPassword: String = ""
     @Published var txtNewPassword: String = ""
     @Published var txtConfirmPassword: String = ""
+    
+    @Published var isCurrentPassword: Bool = false
+    @Published var isNewPassword: Bool = false
+    @Published var isConfirmPassword: Bool = false
     
     @Published var showError = false
     @Published var errorMessage = ""
@@ -45,6 +59,8 @@ class MyDetailViewModel: ObservableObject {
         txtMobile = userObj.mobile
         txtUserName = userObj.username
         txtMobileCode = userObj.mobileCode
+        
+        self.countryObj = Country(phoneCode: txtMobileCode.replacingOccurrences(of: "+", with: ""), isoCode: "MM")
     }
     
     //MARK: ServiceCall

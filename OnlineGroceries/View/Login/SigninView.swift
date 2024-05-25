@@ -6,12 +6,9 @@
 //
 
 import SwiftUI
-import CountryPicker
 
 struct SigninView: View {
     @State var txtMobile: String = ""
-    @State var isShowPicker: Bool = false
-    @State var countryObj: Country?
     
     var body: some View {
         ZStack {
@@ -116,7 +113,7 @@ struct SigninView: View {
                 .padding(.top, .topInsets + .screenWidth * 0.6)
                 
             }
-        }        
+        }
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
         .navigationBarHidden(true)
