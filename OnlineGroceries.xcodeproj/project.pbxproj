@@ -38,6 +38,8 @@
 		5958846C2BEDD9810061DC8D /* DeliveryAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958846B2BEDD9810061DC8D /* DeliveryAddressViewModel.swift */; };
 		5958846E2BEDD9FF0061DC8D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958846D2BEDD9FF0061DC8D /* AddressModel.swift */; };
 		597657AA2BF3A243006EF8F9 /* AddPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597657A92BF3A243006EF8F9 /* AddPaymentMethodView.swift */; };
+		59807F192C0EC1DE00DF878E /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59807F182C0EC1DE00DF878E /* ForgotPasswordViewModel.swift */; };
+		59807F1B2C0ECC9800DF878E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59807F1A2C0ECC9800DF878E /* ForgotPasswordView.swift */; };
 		5991FA3B2B67967900BF506E /* OnlineGroceriesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5991FA3A2B67967900BF506E /* OnlineGroceriesApp.swift */; };
 		5991FA3F2B67967C00BF506E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5991FA3E2B67967C00BF506E /* Assets.xcassets */; };
 		5991FA422B67967C00BF506E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5991FA412B67967C00BF506E /* Preview Assets.xcassets */; };
@@ -137,6 +139,8 @@
 		5958846B2BEDD9810061DC8D /* DeliveryAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressViewModel.swift; sourceTree = "<group>"; };
 		5958846D2BEDD9FF0061DC8D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
 		597657A92BF3A243006EF8F9 /* AddPaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodView.swift; sourceTree = "<group>"; };
+		59807F182C0EC1DE00DF878E /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		59807F1A2C0ECC9800DF878E /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		5991FA372B67967900BF506E /* OnlineGroceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineGroceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5991FA3A2B67967900BF506E /* OnlineGroceriesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineGroceriesApp.swift; sourceTree = "<group>"; };
 		5991FA3E2B67967C00BF506E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 				59A9C90D2BFE3A930079AF10 /* MyOrderDetailViewModel.swift */,
 				59A43C9C2C0216CF0020D722 /* NotificationViewModel.swift */,
 				59A43CA22C0220540020D722 /* MyDetailViewModel.swift */,
+				59807F182C0EC1DE00DF878E /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				5991FA7B2B67A3EF00BF506E /* SigninView.swift */,
 				593035BD2B68E5E500D93C49 /* LoginView.swift */,
 				5992D9A22B6B4A31008767D9 /* SignUpView.swift */,
+				59807F1A2C0ECC9800DF878E /* ForgotPasswordView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -655,9 +661,11 @@
 				59DEC3BC2BEB635B00BE81F7 /* CartItemModel.swift in Sources */,
 				59B85EE52B7610130090921B /* ExploreItemView.swift in Sources */,
 				59FF44F12BFB9E2600C97334 /* MyOrdersViewModel.swift in Sources */,
+				59807F1B2C0ECC9800DF878E /* ForgotPasswordView.swift in Sources */,
 				59100C892B72234C007E316A /* ProductDetailView.swift in Sources */,
 				593035C22B68EA7700D93C49 /* MainViewModel.swift in Sources */,
 				59B85EDD2B7604E70090921B /* ExploreViewModel.swift in Sources */,
+				59807F192C0EC1DE00DF878E /* ForgotPasswordViewModel.swift in Sources */,
 				5958846A2BEDD7570061DC8D /* DeliveryAddressView.swift in Sources */,
 				590D135B2B709FF7006183D4 /* MainTabView.swift in Sources */,
 				59100C8B2B7223F4007E316A /* ProductDetailViewModel.swift in Sources */,
