@@ -1,15 +1,15 @@
 //
-//  LoginView.swift
+//  ForgotPasswordSetView.swift
 //  OnlineGroceries
 //
-//  Created by Cypher on 30/01/2024.
+//  Created by Cypher on 19/06/2024.
 //
 
 import SwiftUI
 
-struct LoginView: View {
+struct ForgotPasswordSetView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @StateObject var loginVM = MainViewModel.shared;
+    @StateObject var forgotVM = ForgotPasswordViewModel.shared;
     
     var body: some View {
         ZStack {
@@ -19,60 +19,35 @@ struct LoginView: View {
                 .frame(width: .screenWidth, height: .screenHeight)
             
             VStack {
-              
+                
                 Image("color_logo")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40)
                     .padding(.bottom, .screenWidth * 0.1)
                 
-                Text("Loging")
+                Text("Set New Password")
                     .font(.customfont(.semibold, fontSize: 26))
                     .foregroundColor(.primaryText)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 4)
                 
-                Text("Enter your emails and password")
+                Text("Enter your new password")
                     .font(.customfont(.semibold, fontSize: 16))
                     .foregroundColor(.secondaryText)
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, .screenWidth * 0.1)
                 
-                LineTextField(title: "Email", placeholder: "Enter your email address",txt: $loginVM.txtEmail, keyboardtype: .emailAddress)
-                    .padding(.bottom, .screenWidth * 0.07)
-                
-                LineSecureField(title: "Password", placeholder: "Enter your password",txt: $loginVM.txtPassword, isShowPassword: $loginVM.isShowPassword)
+                LineSecureField(title: "New Password", placeholder: "Enter your new password",txt: $forgotVM.txtNewPassword, isShowPassword: $forgotVM.isNewPassword)
                     .padding(.bottom, .screenWidth * 0.02)
                 
-                Button {
-//                    ForgotPasswordView()
-                } label: {
-                    Text("Forgot Password?")
-                        .font(.customfont(.semibold, fontSize: 14))
-                        .foregroundColor(.primaryText)
-                }
-                .frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
-                .padding(.bottom, .screenWidth * 0.03)
+                LineSecureField(title: "Confirm Password", placeholder: "Enter your confirm password", txt: $forgotVM.txtConfirmPassword, isShowPassword: $forgotVM.isConfirmPassword)
+                    .padding(.bottom, .screenWidth * 0.04)
                 
-                RoundButton(title: "Log In") {
-                    loginVM.serviceCallLogin()
+                RoundButton(title: "Submit") {
+                    forgotVM.serviceCallSetPassword()
                 }
                 .padding(.bottom, .screenWidth * 0.03)
-                
-                NavigationLink {
-                    SignUpView()
-                } label: {
-                    HStack {
-                        Text("Don't have an account?")
-                            .font(.customfont(.semibold, fontSize: 14))
-                            .foregroundColor(.primaryText)
-                        
-                        Text("Signup")
-                            .font(.customfont(.semibold, fontSize: 14))
-                            .foregroundColor(.primaryApp)
-                    }
-                }
-                
                 
                 Spacer()
             }
@@ -102,9 +77,10 @@ struct LoginView: View {
             .padding(.top, .topInsets)
             .padding(.horizontal, 20)
         }
-        .alert(isPresented: $loginVM.showError) {
-            Alert(title: Text(Globs.AppName), message: Text(loginVM.errorMessage), dismissButton: .default(Text("Ok")))
+        .alert(isPresented: $forgotVM.showError) {
+            Alert(title: Text(Globs.AppName), message: Text(forgotVM.errorMessage), dismissButton: .default(Text("Ok")))
         }
+        
         .background(Color.white)
         .navigationTitle("")
         .navigationBarBackButtonHidden(true)
@@ -114,8 +90,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    NavigationView {
-        LoginView()
-    }
-    
+    ForgotPasswordSetView()
 }

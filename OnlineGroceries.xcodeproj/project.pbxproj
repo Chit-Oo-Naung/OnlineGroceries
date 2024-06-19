@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5906DF732C23241A00657A56 /* ForgotPasswordSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5906DF722C23241A00657A56 /* ForgotPasswordSetView.swift */; };
 		590D13582B709B0B006183D4 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590D13572B709B0B006183D4 /* UserModel.swift */; };
 		590D135B2B709FF7006183D4 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590D135A2B709FF7006183D4 /* MainTabView.swift */; };
 		59100C842B71ED60007E316A /* TypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59100C832B71ED60007E316A /* TypeModel.swift */; };
@@ -37,6 +38,7 @@
 		5958846A2BEDD7570061DC8D /* DeliveryAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595884692BEDD7570061DC8D /* DeliveryAddressView.swift */; };
 		5958846C2BEDD9810061DC8D /* DeliveryAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958846B2BEDD9810061DC8D /* DeliveryAddressViewModel.swift */; };
 		5958846E2BEDD9FF0061DC8D /* AddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958846D2BEDD9FF0061DC8D /* AddressModel.swift */; };
+		595B420C2C0F119E007C24E8 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 595B420B2C0F119E007C24E8 /* OTPView.swift */; };
 		597657AA2BF3A243006EF8F9 /* AddPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597657A92BF3A243006EF8F9 /* AddPaymentMethodView.swift */; };
 		59807F192C0EC1DE00DF878E /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59807F182C0EC1DE00DF878E /* ForgotPasswordViewModel.swift */; };
 		59807F1B2C0ECC9800DF878E /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59807F1A2C0ECC9800DF878E /* ForgotPasswordView.swift */; };
@@ -109,6 +111,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5906DF722C23241A00657A56 /* ForgotPasswordSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordSetView.swift; sourceTree = "<group>"; };
 		590D13572B709B0B006183D4 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		590D135A2B709FF7006183D4 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		59100C832B71ED60007E316A /* TypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeModel.swift; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		595884692BEDD7570061DC8D /* DeliveryAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressView.swift; sourceTree = "<group>"; };
 		5958846B2BEDD9810061DC8D /* DeliveryAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressViewModel.swift; sourceTree = "<group>"; };
 		5958846D2BEDD9FF0061DC8D /* AddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressModel.swift; sourceTree = "<group>"; };
+		595B420B2C0F119E007C24E8 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		597657A92BF3A243006EF8F9 /* AddPaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodView.swift; sourceTree = "<group>"; };
 		59807F182C0EC1DE00DF878E /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		59807F1A2C0ECC9800DF878E /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				593035BD2B68E5E500D93C49 /* LoginView.swift */,
 				5992D9A22B6B4A31008767D9 /* SignUpView.swift */,
 				59807F1A2C0ECC9800DF878E /* ForgotPasswordView.swift */,
+				595B420B2C0F119E007C24E8 /* OTPView.swift */,
+				5906DF722C23241A00657A56 /* ForgotPasswordSetView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -612,6 +618,7 @@
 				59B85EDF2B76053C0090921B /* ExploreCategoryModel.swift in Sources */,
 				59100C842B71ED60007E316A /* TypeModel.swift in Sources */,
 				593970132B71DB9400EE2958 /* ProductModel.swift in Sources */,
+				595B420C2C0F119E007C24E8 /* OTPView.swift in Sources */,
 				59B43AAE2BF3144D004CA27C /* PromoCodeModel.swift in Sources */,
 				59A9C9102BFE3D8A0079AF10 /* MyOrderDetailView.swift in Sources */,
 				594E45282B70C70D0044732C /* HomeView.swift in Sources */,
@@ -641,6 +648,7 @@
 				5992D9A32B6B4A31008767D9 /* SignUpView.swift in Sources */,
 				59DEC3BA2BEB60EC00BE81F7 /* CartViewModel.swift in Sources */,
 				59A43CA32C0220540020D722 /* MyDetailViewModel.swift in Sources */,
+				5906DF732C23241A00657A56 /* ForgotPasswordSetView.swift in Sources */,
 				5991FA782B679D1700BF506E /* UIExtension.swift in Sources */,
 				59A43C9D2C0216CF0020D722 /* NotificationViewModel.swift in Sources */,
 				59100C8F2B722584007E316A /* ImageModel.swift in Sources */,

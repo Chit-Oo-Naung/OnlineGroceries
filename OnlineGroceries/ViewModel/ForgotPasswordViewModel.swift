@@ -32,7 +32,7 @@ class ForgotPasswordViewModel: ObservableObject {
     
     func serviceCallRequest() {
         
-        if(!txtEmail.isValidEmail) {
+        if(txtEmail.isValidEmail) {
             self.errorMessage = "Please enter valid email address"
             self.showError = true
             return
@@ -62,12 +62,11 @@ class ForgotPasswordViewModel: ObservableObject {
             return
         }
         
-        ServiceCall.post(parameter: ["email": txtEmail, "reset_otp": txtResetCode], path: Globs.SV_FORGOT_PASSWORD_VERIFY, isToken: true) { responseObj in
+        ServiceCall.post(parameter: ["email": txtEmail, "reset_code": txtResetCode], path: Globs.SV_FORGOT_PASSWORD_VERIFY, isToken: true) { responseObj in
             if let response = responseObj as? NSDictionary {
                 
                 if response.value(forKey: KKey.status) as? String ?? "" ==  "1" {
                     self.resetObj = response.value(forKey: KKey.payload) as? NSDictionary
-                    self.showVerify = false
                     self.showSetPassword = true
                 } else {
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Fail"
@@ -103,9 +102,7 @@ class ForgotPasswordViewModel: ObservableObject {
                     self.txtNewPassword = ""
                     self.txtConfirmPassword = ""
                     
-                    self.showVerify = false
                     self.showSetPassword = false
-                   
                     self.errorMessage = response.value(forKey: KKey.message) as? String ?? "Success"
                     self.showError = true
                     
